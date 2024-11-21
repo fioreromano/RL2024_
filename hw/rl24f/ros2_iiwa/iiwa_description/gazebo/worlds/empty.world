@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
+
+  <world name="default">
+
+    	
+    <include>
+      <uri>file:///home/user/ros2_ws/src/my_gazebo_models/ground_plane</uri>
+    </include>
+    <gravity>0 0 0</gravity>
+
+
+    <!-- Global light source -->
+    <include>
+      <uri>file:///home/user/ros2_ws/src/my_gazebo_models/sun</uri>
+    </include>
+    
+    
+    
+    <gravity>0 0 0</gravity>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+
+  </world>
+</sdf>
