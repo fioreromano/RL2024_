@@ -297,10 +297,10 @@ class Iiwa_pub_sub : public rclcpp::Node
                         joint_acc_.data = pseudoinverse(robot_temp->getEEJacobian().data)*(cartacc - J_dot_q_dot + 40*err+2*err_dot);
                       
 			//Inverse dynamics in the joint space
-                       // joint_torques_cmd.data = controller_.idCntr(joint_positions_temp, joint_velocities_temp, joint_acc_, 100, 2*sqrt(100));
+                        joint_torques_cmd.data = controller_.idCntr(joint_positions_temp, joint_velocities_temp, joint_acc_, 100, 2*sqrt(100));
  
 			//Inverse dynamics in the operational space
-                        joint_torques_cmd.data =  controller_.idCntr(nextFrame,twist_vel_des,twist_acc_des,10,10, 3, 3);
+                        //joint_torques_cmd.data =  controller_.idCntr(nextFrame,twist_vel_des,twist_acc_des,10,10, 3, 3);
                         
  
                         std::cout <<"torque                      ";
@@ -416,7 +416,7 @@ class Iiwa_pub_sub : public rclcpp::Node
                         Eigen::VectorXd ddqd = joint_acc_.data;
                         robot_->update(toStdVector(joint_positions_.data),toStdVector(joint_velocities_.data));
                         
-                      //  joint_torques_cmd.data=controller_.idCntr(joint_positions_temp, joint_velocities_temp, joint_acc_, 100, 20);
+                        joint_torques_cmd.data=controller_.idCntr(joint_positions_temp, joint_velocities_temp, joint_acc_, 100, 20);
                        
                    
                         for (long int i = 0; i < joint_torques_cmd.data.size(); i++) {
