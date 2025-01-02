@@ -24,7 +24,7 @@ In a third terminal, you can view the output of the manipulator's camera. Run th
 ```
 ros2 run rqt_image_view rqt_image_view
 ```
-### ** 4. Start the Controller** 🎮
+### **4. Start the Controller** 🎮
 
 To control the manipulator, open a fourth terminal and start the controller node with:
 ```
